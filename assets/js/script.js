@@ -11,8 +11,8 @@ const inputEl = document.getElementById("city-input"),
     APIKey = "2cf8f5c07048a6a37c68289929594738";
 
 let forecastQuery;
-let hist = JSON.parse(localStorage.getItem('search')) || [];
 
+let cityArr = [];
 
 async function weather(loc) {
     let api = `https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${APIKey}`;
@@ -82,15 +82,16 @@ const getForecast = async(forecastQuery)=> {
 searchEl.addEventListener("click",async()=>{
     const searchTerm = inputEl.value;
     await weather(searchTerm);
-    hist.push(searchTerm);
-    hist = JSON.stringify(hist);
-    localStorage.setItem("search",hist);
+    cityArr.push(searchTerm);
+    localStorage.setItem("cityArray",JSON.stringify(cityArr));
     getHist();
 })
 
 clearEl.addEventListener("click",function() {
-    hist = [];
     localStorage.clear();
+    document.querySelectorAll('.prev').forEach(e =>{
+        e.remove();
+    });
     getHist();
 })
 
@@ -99,21 +100,25 @@ const convertTemp = (k)=>{
 }
 //get search history and render the current weather data
 const getHist=()=>{
-    prevSearches.textContent = "";
-    JSON.parse(localStorage.getItem("search")).forEach(el => {
-        let histEl = document.createElement("button");
-        histEl.textContent = el.value;
-        histEl.addEventListener('click', async () => {
-            await weather(histEl.textContent);
-            prevSearches.append(histEl);
+    let hist = JSON.parse(localStorage.getItem('cityArray'));
+    if (hist.length) {
+        return hist.map(city => {
+            let el = document.createElement('button');
+            el.textContent = city;
+            el.onClick = weather(city);
+            el.className="prev";
+            prevSearches.appendChild(el);
         })
-    });
-
-
-
+    }
+    // hist.forEach(el => {
+    //     let histEl = document.createElement("button");
+    //     histEl.textContent = el.value;
+    //     histEl.addEventListener('click', async () => {
+    //         await weather(histEl.textContent);
+    //         prevSearches.append(histEl);
+    //     })
 }
-getHist();
 //if history exists, render data
-if (hist.length > 0) {
-    weather(hist[hist.length - 1]);
-}
+document.addEventListener('DOMContentLoaded', ()=>{
+    getHist();
+})
