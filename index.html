@@ -16,32 +16,31 @@
 <div class="container">
     <div>
         <div>
-    <h6 class="search-header">Search for a city</h6>
-    <div>
-        <input id="city-input" type="text" placeholder="Enter a city" aria-label="Enter city name">
-        <div class="input-group-append">
-            <button class="btn" type="button" id="search-button">
-                <i class="fas fa-search"></i>
-            </button>
+            <h6 class="search-header">Search for a city</h6>
+            <div class="first">
+                <div class="input-group-append">
+                    <input id="city-input" type="text" placeholder="Enter a city" aria-label="Enter city name">
+                    <button class="btn btn-primary" type="button" id="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                    <button type="button" id="clear-history">Clear All</button>
+                    <form id="history"></form>
+                </div>
+        </div>
+            <div class="main">
+                <div style="border: solid;" >
+                    <div>
+                        <div>
+                        <div id="city-name"></div>
+                        <img src="https://via.placeholder.com/20" id="current-pic" alt="current0">
+                    </div>
+                </div>
+            <div>
+                <div>
+                    <h6 id="temperature"></h6>
                 </div>
             </div>
-            <button type="button" id="clear-history">Clear All</button>
-            <form id="history"></form>
-        </div>
-        <div>
-            <div>
-                <div style="border: solid;">
-                    <div>
-                    <div>
-                        <div id="city-name"></div>
-                        <img src id="current-pic" alt="current0">
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <h6 id="temperature"></h6>
-                    </div>
-                </div>
             <div>
                 <div>
                     <h6 id="humidity"></h6>
@@ -50,27 +49,26 @@
             <div>
                 <h6 id="wind-speed"></h6>
             </div>
-            </div>
+                    </div>
             <div>
-                <div>
+                <div class="badge">
                     <h6 id="UV-index"></h6>
                 </div>
             </div>
         </div>
     </div>
     <div>
-        <div>
+        <div class="forecast-date">
             <h3>Forecast</h3>
         </div>
     </div>
-    <div>
-        <div class="forecast"></div>
-        <div class="forecast"></div>
-        <div class="forecast"></div>
-        <div class="forecast"></div>
-        <div class="forecast"></div>
+    <div class="forecast-section">
+        <div class="forecast card"></div>
+        <div class="forecast card"></div>
+        <div class="forecast card"></div>
+        <div class="forecast card"></div>
+        <div class="forecast card"></div>
     </div>
-</div>
 </div>
 <script src="./assets/js/script.js"></script>
 </body>
