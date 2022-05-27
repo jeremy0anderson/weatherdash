@@ -1,0 +1,77 @@
+<!DOCtypE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+<link rel="stylesheet" href="./assets/css/style.css">
+<title>Weather Dashboard</title>
+</head>
+<body>
+<nav class="navbar">
+<div class="navbar-brand mb-0 h1 w-100 text-center">Weather Dashboard</div>
+</nav>
+<div class="container">
+    <div>
+        <div>
+    <h6 class="search-header">Search for a city</h6>
+    <div>
+        <input id="city-input" type="text" placeholder="Enter a city" aria-label="Enter city name">
+        <div class="input-group-append">
+            <button class="btn" type="button" id="search-button">
+                <i class="fas fa-search"></i>
+            </button>
+                </div>
+            </div>
+            <button type="button" id="clear-history">Clear All</button>
+            <form id="history"></form>
+        </div>
+        <div>
+            <div>
+                <div style="border: solid;">
+                    <div>
+                    <div>
+                        <div id="city-name"></div>
+                        <img src id="current-pic" alt="current0">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <h6 id="temperature"></h6>
+                    </div>
+                </div>
+            <div>
+                <div>
+                    <h6 id="humidity"></h6>
+                </div>
+                </div>
+            <div>
+                <h6 id="wind-speed"></h6>
+            </div>
+            </div>
+            <div>
+                <div>
+                    <h6 id="UV-index"></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <h3>Forecast</h3>
+        </div>
+    </div>
+    <div>
+        <div class="forecast"></div>
+        <div class="forecast"></div>
+        <div class="forecast"></div>
+        <div class="forecast"></div>
+        <div class="forecast"></div>
+    </div>
+</div>
+</div>
+<script src="./assets/js/script.js"></script>
+</body>
+</html>
